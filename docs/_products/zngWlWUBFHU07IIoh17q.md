@@ -7,7 +7,7 @@ categories:
 stock:
   quantity: 0
   status: discontinued
-price:
-  value: .99
-  currency: USD
+  price:
+    value: .99
+    currency: USD
 ---

@@ -6,7 +6,7 @@ categories:
   energy drink
 stock:
   quantity: 10
-price:
-  value: 2.49
-  currency: USD
+  price:
+    value: 2.49
+    currency: USD
 ---
