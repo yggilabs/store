@@ -1,0 +1,104 @@
+:root {
+  --site__header_background-color: var(--colors__light, #ffffff);
+
+  --site__nav_background-color: var(--colors__light, #ffffff);
+
+  --site__hero_background-color: var(--colors__light, #ffffff);
+
+  --markdown-body__a_color: var(--colors__highlight, #7fffff);
+
+  --menu-button_color: var(--colors__light, #ffffff);
+  --menu-button_opacity: .8;
+  --menu-button_border-radius: .75em;
+  --menu-button_background-color: var(--colors__dark, #000000);
+
+  --patreon-button_color: var(--colors__light);
+  --patreon-button_background-color: var(--colors__highlight);
+
+  --permalink_opacity: .5;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --permalink_opacity: 1;
+  }
+}
+
+.site__nav {
+   background-color: var(--site__nav_background-color);
+}
+
+.site__header {
+   background-color: var(--site__header_background-color);
+}
+
+.site__hero {
+   background-color: var(--site__hero_background-color);
+}
+
+.menu-button {
+  color: var(--menu-button_color);
+  opacity: var(--menu-button_opacity);
+  border-radius: var(--menu-button_border-radius);
+  background-color: var(--menu-button_background-color);
+  border: none;
+  font-size: 2em;
+  margin-top: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body a.patreon-button {
+  background-color: var(--patreon-button_background-color, --colors__highlight);
+  border: none;
+  padding: 7px 14px;
+  margin-left: 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--patreon-button_color, --colors__light);
+}
+
+.markdown-body a.patreon-button:hover {
+  opacity: .8;
+  text-decoration: none;
+}
+
+.tags {
+  list-style: none;
+}
+
+.tags > li {
+  display: inline;
+}
+
+
+.tags > li:not(:last-child):after {
+  content: ', ';
+}
+
+.markdown-body a {
+  color: var(--markdown-body__a_color);
+}
+
+.site__footer {
+  text-align: center;
+}
+
+.markdown-body :hover > a.permalink::before {
+  display: inline;
+}
+
+.markdown-body a.permalink::before {
+  content: '@';
+  display: none;
+  opacity: var(--permalink_opacity);
+}
+
+.markdown-body a.permalink:hover {
+  text-decoration: none;
+}
+
+.markdown-body a.permalink:hover::before {
+  opacity: 1;
+}
