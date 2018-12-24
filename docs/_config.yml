@@ -42,7 +42,14 @@ permalink: none
 analytics: false # url parameters are acting wierd
 collections:
   products:
-    output: true
+  output: true
+defaults:
+  -
+    scope:
+      path: ""
+      type: "products"
+    values:
+      layout: "product"
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
