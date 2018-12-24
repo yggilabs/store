@@ -42,7 +42,7 @@ permalink: none
 analytics: false # url parameters are acting wierd
 collections:
   products:
-  output: true
+    output: true
 defaults:
   -
     scope:
