@@ -1,10 +1,8 @@
 ---
 layout: default
-title: Home
+title: Products
 ---
 
-<main class="site__content">
-  
 ## Products
 {% for product in site.products %}
 ### {{ product.label }}
@@ -12,4 +10,3 @@ title: Home
 
 {{ product.stock.price.value }} {{ product.stock.price.currency }}
 {% endfor %}
-</main>
