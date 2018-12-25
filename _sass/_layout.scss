@@ -92,17 +92,6 @@
   height: var(--site__footer_height);
 }
 
-.site__patrons {
-  grid-area: patrons;
-  padding-left: var(--site__content_padding-left);
-  padding-right: var(--site__content_padding-right);
-}
-
-.site__patrons ul {
-  column-width: 400px;
-  list-style: none;
-}
-
 .menu-button {
   display: var(--site__header__button_display);
   position: fixed;
