@@ -1,12 +1,11 @@
 ---
-layout: default
+layout: content
 title: Products
 ---
 
 ## Products
 {% for product in site.products %}
-### {{ product.label }}
-[view]({{ site.github.baseurl }}{{ product.url }})
+* [{{ product.label }}]({{ site.github.baseurl }}{{ product.url }})
 
-{{ product.stock.price.value }} {{ product.stock.price.currency }}
+  {{ product.stock.price.value }} {{ product.stock.price.currency }}
 {% endfor %}
