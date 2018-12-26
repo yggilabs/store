@@ -1,0 +1,10 @@
+---
+layout: content
+---
+[Home]({{ site.github.url }}) > [Shop]({{ site.github.url }}/{{ page.collection }})
+
+Sort: {% for sort in site.sorts %}
+  * [{{ sort.label }}]({{ site.github.url }}{{ sort.url }}){{ seperator }}
+{% endfor %}
+
+{{ content }}
