@@ -2,12 +2,13 @@
 layout: content
 ---
 
-## Shop
+<a href="{{ site.github.url }}">Home</a> > <a href="{{ site.github.url }}{{ page.collection.first.url }}">Shop</a>
 
-[Home]({{ site.github.url }}) > [Shop]({{ site.github.url }}/{{ page.collection }})
-
-Sort: {% for sort in site.sorts %}
-  * [{{ sort.label }}]({{ site.github.url }}{{ sort.url }}){{ seperator }}
-{% endfor %}
+Sort:
+<ul>
+ {% for sort in site.sorts %}
+ <li><a href="{{ site.github.url }}{{ sort.url }}">{{ sort.label }}</a></li>
+ {% endfor %}
+</ul>
 
 {{ content }}
