@@ -1,7 +1,7 @@
 ---
 ---
 var CACHE_NAME = 'cache-{{ site.time }}';
-var urlsToCache = ['{{ site.github.baseurl }}/'{% for post in site.posts %}, '{{ site.baseurl }}{{ post.url }}'{% endfor %}];
+var urlsToCache = ['{{ site.github.baseurl }}/'{% for product in site.products %}, '{{ site.baseurl }}{{ product.url }}'{% endfor %}];
 
 self.addEventListener('install', function(event) {
   // Perform install steps
