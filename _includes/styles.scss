@@ -1,7 +1,7 @@
 :root {
   --colors__highlight: {{ site.theme_color }};
-  --colors__light: #ffffff;
-  --colors__dark: #555962;
+  --colors__light: #555962;
+  --colors__dark: #ffffff;
 }
 
 @import "layout";
