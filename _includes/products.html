@@ -1,1 +1,2 @@
-{% assign products = site.products | sort: {{ page.sort }} %}
+{% capture sort %}{{ page.sort }}{% endcapture %}
+{% assign products = site.products | sort: sort %}
