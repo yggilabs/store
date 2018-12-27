@@ -1,5 +1,10 @@
 <!-- begin loop -->
 <ul>
-
+{% for product in products %}
+  <li>
+    <p><a href="{{ site.github.baseurl }}{{ product.url }}">{{ product.name }}</a></p>
+    <p>{{ product.stock.price.value }} {{ product.stock.price.currency }}</p>
+  </li>
+{% endfor %}
 </ul>
 <!-- end loop -->
