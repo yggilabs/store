@@ -2,7 +2,10 @@
 layout: content
 ---
 
+{% include breadcrumbs.html %}
+{% include views.html %}
+
+{{ content }}
 
 {% include products.html %}
-{% assign products = products | sort: "{{ page.sort }}" %}
 {% include loop.html %}
