@@ -1,1 +1,2 @@
-{% assign products = site.products | sort: layout.sort %}
+{{ page | inspect }}
+{% assign products = site.products | sort: 'label' %}
