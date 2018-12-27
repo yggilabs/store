@@ -8,4 +8,4 @@ layout: content
 {{ content }}
 
 {% include products.html %}
-
+{% assign products = products | sort: "{{ page.sort }}" %}
