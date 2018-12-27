@@ -6,6 +6,6 @@ layout: content
 {% include views.html %}
 
 {{ content }}
-{{ page | inspect }}
+
 {% assign products = site.products | sort: 'label' %}
 {% include loop.html %}
