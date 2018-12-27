@@ -8,5 +8,5 @@ layout: content
 {{ content }}
 
 {% inlcude products.html %}
-{% assign products = products | sort: page.sort %}
+{% assign products = products | sort: "{{ page.sort }}" %}
 {% include loop.html %}
