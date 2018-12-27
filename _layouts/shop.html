@@ -2,9 +2,9 @@
 layout: content
 ---
 <!-- begin shop layout -->
+{{ page.collections }}
 {% include breadcrumbs.html %}
 {% include views.html %}
-{{ page | jsonify }}
 {% assign products = site.products | sort:'name' %}
 {% include loop.html %}
 <!-- end shop layout -->
