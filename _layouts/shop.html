@@ -5,6 +5,6 @@ layout: content
 {{ page.sort }}
 {% include breadcrumbs.html %}
 {% include views.html %}
-{% assign products = site.products | sort:'name' %}
+{% assign products = site.products | sort: page.sort %}
 {% include loop.html %}
 <!-- end shop layout -->
