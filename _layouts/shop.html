@@ -7,5 +7,5 @@ layout: content
 
 {{ content }}
 
-{% assign products = site.products | sort:'name' %}
+{% assign products = site.products | sort:page.sort %}
 {% include loop.html %}
