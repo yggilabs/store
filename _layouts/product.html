@@ -6,24 +6,23 @@ sidebar: true
   <script type="application/json">
     {      
       {%- for attribute in page.attributes -%}
-      "selected_{{ attribute }}": "{{ page.ttributes[attribute].first }}", 
+      "selected_{{ attribute.name }}": "{{ page.attributes.items.first }}", 
       {%- endfor -%}      
       "price": {{ page.price }}
     }    
   </script>
 </amp-state>
 {% for attribute in page.attributes %}
-<amp-selector name="{{ attribute }}"
+<amp-selector name="{{ attribute.name }}"
   layout="container"
-  [selected]="product.selected_{{ attribute }}"
+  [selected]="product.selected_{{ attribute.name }}"
   on="select:AMP.setState({
     product: {
-      selected_{{ attribute }}: event.targetOption
+      selected_{{ attribute.name }}: event.targetOption
     }
    })">
-  {% assign variations = page.variations | map: "attributes" | map: attribute | uniq %}
-  <ul>
-  {% for variant in attribute %}
+    <ul>
+  {% for variant in attribute.items %}
     <li{% if forloop.first %} selected{% endif %} option="{{variant}}">{{variant}}</li>
   {% endfor %}
   </ul>
@@ -38,9 +37,9 @@ sidebar: true
     value="CLIENT_ID(cart)"
     data-amp-replace="CLIENT_ID">
   {%- for attribute in page.attributes -%}
-  <input name="attributes[{{ attribute }}]"  
+  <input name="attributes[{{ attribute.name }}]"  
     type="hidden"
-    [value]="product[product.selected_{{ attribute }}]>
+    [value]="product[product.selected_{{ attribute.name }}]>
   {%- endfor -%}
   <input type="submit">
 </form>
