@@ -42,7 +42,7 @@ sidebar: true
   <input name="attributes[{{ attribute.name }}]"  
     type="hidden"
     value="{{ attribute.items.first }}"
-    [value]="product[product.selected_{{ attribute.name }}]">
+    [value]="product.selected_{{ attribute.name }}">
   {%- endfor -%}
   <input type="submit">
 </form>
