@@ -6,7 +6,7 @@ sidebar: true
   <script type="application/json">
     {      
       {%- for attribute in page.attributes -%}
-      "selected_{{ attribute.name }}": "{{ page.attributes.items.first }}", 
+      "selected_{{ attribute.name }}": "{{ attribute.items.first }}", 
       {%- endfor -%}      
       "price": {{ page.price }}
     }    
