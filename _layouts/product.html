@@ -39,6 +39,7 @@ sidebar: true
   {%- for attribute in page.attributes -%}
   <input name="attributes[{{ attribute.name }}]"  
     type="hidden"
+    value="{{ attribute.items.first }}"
     [value]="product[product.selected_{{ attribute.name }}]>
   {%- endfor -%}
   <input type="submit">
