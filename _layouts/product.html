@@ -38,6 +38,9 @@ sidebar: true
     type="hidden"
     value="CLIENT_ID(cart)"
     data-amp-replace="CLIENT_ID">
+  <input name="productId"  
+    type="hidden"
+    value="{{ page.path }}">
   {%- for attribute in page.attributes -%}
   <input name="attributes[{{ attribute.name }}]"  
     type="hidden"
