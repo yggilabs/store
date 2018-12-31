@@ -22,8 +22,8 @@ sidebar: true
     }
    })">
     <ul>
-  {%- for variant in attribute.items -%}
-    <li{% if forloop.first %} selected{% endif %} option="{{variant}}">{{variant}}</li>
+  {%- for item in attribute.items -%}
+    <li{% if forloop.first %} selected{% endif %} option="{{ item }}">{{ item }}</li>
   {%- endfor -%}
   </ul>
 </amp-selector>
