@@ -1,4 +1,59 @@
 ---
 layout: content
+sidebar: true
 ---
-{{ page.name }}
+<amp-state id="product">
+  <script type="application/json">
+    {      
+      {%- for attribute in page.attributes -%}
+      "selected_{{ attribute }}": "{{ page.ttributes[attribute].first }}", 
+      {%- endfor -%}      
+      "price": {{ page.price }}
+    }    
+  </script>
+</amp-state>
+{% for attribute in page.attributes %}
+<amp-selector name="{{ attribute }}"
+  layout="container"
+  [selected]="product.selected_{{ attribute }}"
+  on="select:AMP.setState({
+    product: {
+      selected_{{ attribute }}: event.targetOption
+    }
+   })">
+  {% assign variations = page.variations | map: "attributes" | map: attribute | uniq %}
+  <ul>
+  {% for variant in attribute %}
+    <li{% if forloop.first %} selected{% endif %} option="{{variant}}">{{variant}}</li>
+  {% endfor %}
+  </ul>
+</amp-selector>
+{% endfor %}
+<form method="post"
+  action-xhr="https://us-central1-cart-991a0.cloudfunctions.net/api/shop/{{ site.github.repository_nwo | url_encode | replace: "/","%2f" }}/cart/"
+  target="_top"
+  on="submit-success:cart.refresh">
+  <input name="cartId"  
+    type="hidden"
+    value="CLIENT_ID(cart)"
+    data-amp-replace="CLIENT_ID">
+  {%- for attribute in page.attributes -%}
+  <input name="attributes[{{ attribute }}]"  
+    type="hidden"
+    [value]="product[product.selected_{{ attribute }}]>
+  {%- endfor -%}
+  <input type="submit">
+</form>
+<button on='tap:sidebar.toggle'>cart</button>
+<amp-sidebar id="sidebar" layout="nodisplay" side="right" on="open:cart.refresh">
+  <amp-list id="cart"    
+    layout="fill"
+    src="https://us-central1-cart-991a0.cloudfunctions.net/api/shop/{{ site.github.repository_nwo | url_encode | replace: "/","%2f" }}/cart/?clientId=CLIENT_ID(cart)">
+    {% raw %}
+    <template type="amp-mustache">
+      <div>{{ id }}</div>
+    </template>
+    {% endraw %}
+  </amp-list>
+</amp-sidebar>
+
