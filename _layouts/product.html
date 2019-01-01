@@ -13,7 +13,7 @@ sidebar: true
     }    
   </script>
 </amp-state>
-<div class="site__product-selectors">
+<div class="product__selectors">
 {%- for attribute in page.attributes -%}
 <amp-selector name="{{ attribute.name }}"
   layout="container"
@@ -31,26 +31,30 @@ sidebar: true
 </amp-selector>
 {%- endfor -%}
 </div>
-<form method="post"
-  action-xhr="https://us-central1-cart-991a0.cloudfunctions.net/api/shop/{{ site.github.repository_nwo | url_encode | replace: "/","%2f" }}/cart/"
-  target="_top"
-  on="submit-success:cart.refresh">
-  <input name="cartId"  
-    type="hidden"
-    value="CLIENT_ID(cart)"
-    data-amp-replace="CLIENT_ID">
-  <input name="productId"  
-    type="hidden"
-    value="{{ page.path }}">
-  {%- for attribute in page.attributes -%}
-  <input name="attributes[{{ attribute.name }}]"  
-    type="hidden"
-    value="{{ attribute.items.first }}"
-    [value]="product.selected_{{ attribute.name }}">
-  {%- endfor -%}
-  <input type="submit">
-</form>
-<button on='tap:sidebar.toggle'>cart</button>
+<div class="product__submit-button">
+  <form method="post"
+    action-xhr="https://us-central1-cart-991a0.cloudfunctions.net/api/shop/{{ site.github.repository_nwo | url_encode | replace: "/","%2f" }}/cart/"
+    target="_top"
+    on="submit-success:cart.refresh">
+    <input name="cartId"  
+      type="hidden"
+      value="CLIENT_ID(cart)"
+      data-amp-replace="CLIENT_ID">
+    <input name="productId"  
+      type="hidden"
+      value="{{ page.path }}">
+    {%- for attribute in page.attributes -%}
+    <input name="attributes[{{ attribute.name }}]"  
+      type="hidden"
+      value="{{ attribute.items.first }}"
+      [value]="product.selected_{{ attribute.name }}">
+    {%- endfor -%}
+    <input type="submit">
+  </form>
+</div>
+<div class="product__cart-button">
+  <button on='tap:sidebar.toggle'>cart</button>
+</div>
 <amp-sidebar id="sidebar" layout="nodisplay" side="right" on="open:cart.refresh">
   <amp-list id="cart"    
     layout="fill"
