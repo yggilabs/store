@@ -42,7 +42,7 @@ sidebar: true
     {% for image in page.images %}
     <amp-img
       height="300"
-      layout="fixed height"
+      layout="fixed-height"
       alt="an image"
       src="{{ image }}"></amp-img>  
     {% endfor %}
@@ -53,7 +53,7 @@ sidebar: true
     layout="fixed-height"
     type="carousel">
     {% for image in page.images %}
-    <button on="tap:product-image-carousel.goToSlide(index={{ forloop.index }})">
+    <button on="tap:product-image-carousel.goToSlide(index={{ forloop.index | decrement }})">
       <amp-img src="{{ image }}"
         width="auto"
         height="40"
