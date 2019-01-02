@@ -13,6 +13,13 @@ sidebar: true
     }    
   </script>
 </amp-state>
+<div class="product__features">
+  <ul>
+    {%- for feature in page.features -%}
+    <li>{{ feature }}</li>
+    {%- endfor -%}
+  </ul>
+</div>
 <div class="product__selectors">
 {%- for attribute in page.attributes -%}
 <amp-selector name="{{ attribute.name }}"
