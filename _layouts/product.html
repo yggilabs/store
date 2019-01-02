@@ -58,7 +58,10 @@ sidebar: true
     layout="fixed-height"
     type="carousel">
     {% for image in page.images %}
-    <button on="tap:product-image-carousel.goToSlide(index={{ forloop.index | minus: 1 }})">
+    <button 
+      height="40"
+      layout="fixed-height"
+      on="tap:product-image-carousel.goToSlide(index={{ forloop.index | minus: 1 }})">
       <amp-img src="{{ image }}"
         class="cover"
         layout="fill"
