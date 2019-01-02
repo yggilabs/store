@@ -32,7 +32,8 @@ sidebar: true
 {%- endfor -%}
 </div>
 <div class="product__image">
-  <amp-carousel id="product-image-carousel"
+  <amp-carousel class="product__carousel"
+    id="product-image-carousel"
     width="auto"
     height="300"
     layout="fixed height"
@@ -46,7 +47,7 @@ sidebar: true
       src="{{ image }}"></amp-img>  
     {% endfor %}
   </amp-carousel>
-  <amp-carousel class="carousel-preview"
+  <amp-carousel class="product__carousel-preview"
     width="auto"
     height="48"
     layout="fixed-height"
@@ -59,6 +60,7 @@ sidebar: true
         layout="responsive"
         alt="a sample image"></amp-img>
     </button>
+    {%- endfor -%}
   </amp-carousel>
 </div>
 <div class="product__submit-button">
