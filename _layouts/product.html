@@ -32,12 +32,34 @@ sidebar: true
 {%- endfor -%}
 </div>
 <div class="product__image">
-  <amp-img
-    width="1698"
-    height="2911"
-    layout="responsive"
-    alt="an image"
-    src="https://images-na.ssl-images-amazon.com/images/I/81A9r-kog%2BL._UL1500_.jpg"></amp-img>
+  <amp-carousel id="product-image-carousel"
+    width="auto"
+    height="300"
+    layout="fixed height"
+    type="slides"
+    lightbox>
+    {% for image in page.images %}
+    <amp-img
+      height="300"
+      layout="fixed height"
+      alt="an image"
+      src="{{ image }}"></amp-img>  
+    {% endfor %}
+  </amp-carousel>
+  <amp-carousel class="carousel-preview"
+    width="auto"
+    height="48"
+    layout="fixed-height"
+    type="carousel">
+    {% for image in page.images %}
+    <button on="tap:product-image-carousel.goToSlide(index={{ forloop.index }})">
+      <amp-img src="{{ image }}"
+        width="auto"
+        height="40"
+        layout="responsive"
+        alt="a sample image"></amp-img>
+    </button>
+  </amp-carousel>
 </div>
 <div class="product__submit-button">
   <form method="post"
