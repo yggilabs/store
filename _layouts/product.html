@@ -76,6 +76,7 @@ sidebar: true
   </amp-carousel>
 </div>
 <div class="product__add-to-cart-button">
+  <strong>&nbsp;</strong>
   <form method="post"
     action-xhr="https://us-central1-cart-991a0.cloudfunctions.net/api/shop/{{ site.github.repository_nwo | url_encode | replace: "/","%2f" }}/cart/"
     target="_top"
