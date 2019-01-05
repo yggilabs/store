@@ -2,7 +2,7 @@
   <form method="post"
     action-xhr="https://us-central1-cart-991a0.cloudfunctions.net/api/shop/{{ site.github.repository_nwo | url_encode | replace: "/","%2f" }}/cart/"
     target="_top"
-    on="submit-success:cart.refresh">
+    on="submit-success:cart.refresh;valid:AMP.setState({add_to_cart_disable: false})">
     <input name="cartId"  
       type="hidden"
       value="CLIENT_ID(cart)"
@@ -16,5 +16,5 @@
       value="{{ attribute.items.first }}"
       [value]="product.selected_{{ attribute.name }}">
     {%- endfor -%}
-    <input type="submit" value="add to cart">
+    <input type="submit" disabled [disabled]="add_to_cart_disable" value="add to cart">
   </form>
