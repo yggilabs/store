@@ -3,16 +3,7 @@ layout: content
 content_class: product
 sidebar: true
 ---
-<amp-state id="product">
-  <script type="application/json">
-    {      
-      {%- for attribute in page.attributes -%}
-      "selected_{{ attribute.name }}": "{{ attribute.items.first }}", 
-      {%- endfor -%}      
-      "price": {{ page.price }}
-    }    
-  </script>
-</amp-state>
+{% include product/state.html attributes=page.attributes %}
 <div class="product_name">
   <h2>{{ page.name }}</h2>
 </div>
@@ -20,19 +11,16 @@ sidebar: true
   <p>{{ content }}</p>
 </div>
 <div class="product__features">
-  <ul>
-    {%- for feature in page.features -%}
-    <li>{{ feature }}</li>
-    {%- endfor -%}
-  </ul>
+  {% include product/features.html features=page.features %}
 </div>
 <div class="product__selectors">
-{% include product/selectors.html attributes=page.attributes %}
+  {% include product/selectors.html attributes=page.attributes %}
 </div>
 <div class="product__carousel">
-{% include product/carousel.html images=page.images %}
+  {% include product/carousel.html images=page.images %}
 </div>
 <div class="product__add-to-cart">
-{% include product/carousel.html attributes=page.attributes %}
+  {% include product/carousel.html attributes=page.attributes %}
 </div>
 <hr class="product__rule">
+{% include sidebar.html %}
