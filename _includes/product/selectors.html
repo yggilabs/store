@@ -10,7 +10,7 @@
   <strong>{{ attribute.name | capitalize}}</strong>
   <ul>
   {%- for item in attribute.items -%}
-    <li{% if forloop.first %} selected{% endif %} option="{{ item }}">{{ item }}</li>
+    <li option="{{ item }}">{{ item }}</li>
   {%- endfor -%}
   </ul>
 </amp-selector>
