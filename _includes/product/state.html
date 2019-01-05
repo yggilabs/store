@@ -1,7 +1,7 @@
 <amp-state id="product">
   <script type="application/json">
     {      
-      {%- for attribute in layout.attributes -%}
+      {%- for attribute in include.attributes -%}
       "selected_{{ attribute.name }}": "{{ attribute.items.first }}", 
       {%- endfor -%}      
       "price": {{ page.price }}
