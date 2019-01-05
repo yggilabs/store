@@ -1,0 +1,20 @@
+  <strong>&nbsp;</strong>
+  <form method="post"
+    action-xhr="https://us-central1-cart-991a0.cloudfunctions.net/api/shop/{{ site.github.repository_nwo | url_encode | replace: "/","%2f" }}/cart/"
+    target="_top"
+    on="submit-success:cart.refresh">
+    <input name="cartId"  
+      type="hidden"
+      value="CLIENT_ID(cart)"
+      data-amp-replace="CLIENT_ID">
+    <input name="productId"  
+      type="hidden"
+      value="{{ page.path }}">
+    {%- for attribute in include.attributes -%}
+    <input name="attributes[{{ attribute.name }}]"  
+      type="hidden"
+      value="{{ attribute.items.first }}"
+      [value]="product.selected_{{ attribute.name }}">
+    {%- endfor -%}
+    <input type="submit" value="add to cart">
+  </form>
