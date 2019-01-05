@@ -1,0 +1,28 @@
+<amp-carousel
+    id="product-image-carousel"
+    height="300"
+    layout="fixed-height"
+    type="slides"
+    lightbox>
+    {% for image in include.images %}
+    <amp-img
+      class="contain"
+      layout="fill"
+      alt="an image"
+      src="{{ image }}"></amp-img>  
+    {% endfor %}
+  </amp-carousel>
+  <amp-carousel
+    height="48"
+    layout="fixed-height"
+    type="carousel">
+    {% for image in include.images %}
+    <button on="tap:product-image-carousel.goToSlide(index={{ forloop.index | minus: 1 }})">
+      <amp-img src="{{ image }}"
+        width="60"
+        height="40"
+        layout="responsive"
+        alt="a sample image"></amp-img>
+    </button>
+    {%- endfor -%}
+  </amp-carousel>
