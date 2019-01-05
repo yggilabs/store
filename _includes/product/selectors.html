@@ -1,4 +1,4 @@
-{%- for attribute in page.attributes -%}
+{%- for attribute in include.attributes -%}
 <amp-selector name="{{ attribute.name }}"
   layout="container"
   [selected]="product.selected_{{ attribute.name }}"
