@@ -12,9 +12,9 @@
     {% endfor %}
   </amp-carousel>
   <amp-carousel
+    id="product-image-carousel-preview"                
     height="48"
-    layout="fixed-height"
-    type="carousel">
+    layout="fixed-height">
     {% for image in include.images %}
     <amp-img 
       src="{{ image }}"
