@@ -17,7 +17,8 @@
     type="carousel">
     {% for image in include.images %}
     <button on="tap:product-image-carousel.goToSlide(index={{ forloop.index | minus: 1 }})">
-      <amp-img src="{{ image }}"
+      <amp-img 
+        src="{{ image }}"
         width="60"
         height="40"
         layout="responsive"
