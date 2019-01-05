@@ -7,19 +7,19 @@ sidebar: true
 <div class="product_name">
   <h2>{{ page.name }}</h2>
 </div>
-<div class="product_description">
+<div class="product_description contain">
   <p>{{ content }}</p>
 </div>
-<div class="product__features">
+<div class="product__features contain">
   {% include product/features.html features=page.features %}
 </div>
-<div class="product__selectors">
+<div class="product__selectors contain">
   {% include product/selectors.html attributes=page.attributes %}
 </div>
 <div class="product__carousel">
   {% include product/carousel.html images=page.images %}
 </div>
-<div class="product__add-to-cart">
+<div class="product__add-to-cart contain">
   {% include product/add-to-cart.html attributes=page.attributes %}
 </div>
 <hr class="product__rule">
