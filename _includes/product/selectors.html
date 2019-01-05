@@ -1,0 +1,17 @@
+{%- for attribute in page.attributes -%}
+<amp-selector name="{{ attribute.name }}"
+  layout="container"
+  [selected]="product.selected_{{ attribute.name }}"
+  on="select:AMP.setState({
+    product: {
+      selected_{{ attribute.name }}: event.targetOption
+    }
+   })">
+  <strong>{{ attribute.name | capitalize}}</strong>
+  <ul>
+  {%- for item in attribute.items -%}
+    <li{% if forloop.first %} selected{% endif %} option="{{ item }}">{{ item }}</li>
+  {%- endfor -%}
+  </ul>
+</amp-selector>
+{%- endfor -%}
