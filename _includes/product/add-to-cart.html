@@ -17,5 +17,5 @@
       value="{{ attribute.items.first }}"
       [value]="product.selected_{{ attribute.name }}">
     {%- endfor -%}
-    <input type="submit" disabled [disabled]="add_to_cart_disable" value="add to cart">
+    <input type="submit" [disabled]="add_to_cart_disable" value="add to cart">
   </form>
