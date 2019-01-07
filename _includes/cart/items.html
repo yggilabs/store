@@ -1,9 +1,9 @@
 <amp-list id="cart"
     layout="fill"
     src="https://us-central1-cart-991a0.cloudfunctions.net/api/shop/{{ site.github.repository_nwo | url_encode | replace: "/","%2f" }}/cart/?clientId=CLIENT_ID(cart)">
-    <table>
+    <ul>
     <template type="amp-mustache">
-      {% include cart/item.html %}
+      <li>{% include cart/item.html %}</li>
     </template>
-    </table>
+    </ul>
 </amp-list>
