@@ -3,7 +3,9 @@ layout: content
 content_class: product
 ---
 {% include product/state.html attributes=page.attributes %}
-<a href="{{ site.github.url }}{{ site.views.first.url }}" on="tap:AMP.goBack">&lt; back</a>
+<div class="product_back">
+  <a href="{{ site.github.url }}{{ site.views.first.url }}" on="tap:AMP.goBack">&lt; back</a>
+</div>
 <div class="product_name">
   <h2>{{ page.name }}</h2>
 </div>
